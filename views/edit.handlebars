@@ -1,0 +1,76 @@
+{{#section 'edit'}}
+	<title>edit page</title>
+	<link rel="stylesheet" type="text/css" href="/css/edit.css">
+{{/section}}
+
+{{> nav}}
+
+<div class="main">
+	<div class="post-poems">
+		<form action="/edit" method="">
+			<label class="title">上传诗歌：</label>
+			<hr>
+			<label class="poem-name">题目：</label>
+			<input type="text" name="poem_name" id="poem_name" required autofocus>
+			<hr>
+			<label class="poem-author">作者：</label>
+			<input type="text" name="poem_author" id="poem_author" required>
+			<hr>
+			<label class="poem-content">内容：</label>
+			<textarea class="poem-content" id="poem_content" required></textarea>
+			<br>
+			<button type="button" id="submit">提交</button>
+		<form>
+	</div>
+
+</div>
+{{#section 'editJS'}}
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#submit').click(function() {
+				$('button').click(function() {
+				var value = $(this).html();
+				switch (value) {
+					case 'login':
+						location.href = '/';
+						break;
+					case 'logout':
+						location.href = '/logout';
+						break;
+					case 'register':
+						location.href = '/register';
+						break;
+					case 'edit':
+						location.href = '/edit';
+						break
+					default:
+						location.href = '/error';
+				}
+			});
+				var poemName = $('#poem_name').val();
+				var poemAuthor = $('#poem_author').val();
+				var poemContent = $('#poem_content').val();
+				var uploadStr = {
+					'poem_name': poemName,
+					'poem_author': poemAuthor,
+					'poem_content': poemContent
+				};
+				$.ajax({
+					data:uploadStr,
+					url:'/edit',
+					dataType:'json',
+					type:'POST',
+					success:function(data) {
+						if(data) {
+							alert('上传成功');
+						}
+					},
+					error:function(xhr,textStatus,err) {
+						alert('error:' + textStatus + "," + err);
+					}
+				});
+			});
+		})
+	</script>
+{{/section}}

@@ -1,0 +1,77 @@
+{{#section 'login'}}
+	<title>login page</title>
+	<link rel="stylesheet" type="text/css" href="/css/login.css">
+{{/section}}
+{{> nav}}
+<div class="contents">
+	
+	<div class="login-box">
+		<form method="POST" action="">
+			<label>姓名：</label>
+			<input type="text" name="username" required="true" autofocus="true"	placeholder="username" id="username">
+			<br>
+			<label>密码：</label>
+			<input type="text" name="password" required="true" placeholder="password" id="password">
+			<br>
+			<button type="button" id="register">注册</button>
+			<button type="button" id="login">登陆</button>
+		</form>
+		
+	</div>
+</div>
+{{#section 'loginJS'}}
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('button').click(function() {
+				var value = $(this).html();
+				switch (value) {
+					case 'login':
+						location.href = '/';
+						break;
+					case 'logout':
+						location.href = '/logout';
+						break;
+					case 'register':
+						location.href = '/register';
+						break;
+					case 'edit':
+						location.href = '/edit';
+						break
+					default:
+						location.href = '/error';
+				}
+			});
+			$('#register').click(function() {	
+				location.href = '/register';
+			});
+			$('#login').click(function() {
+				console.log('2');
+				var username = $('#username').val();
+				var password = $('#password').val();
+				var searchStr = {
+					'user_name': username,
+					'user_pwd': password
+				};
+				$.ajax({
+					data: searchStr,
+					url: '/',
+					type: 'POST',
+					dataType: 'json',
+					success: function(data) {
+						if(data) {
+							alert('恭喜你登陆成功');
+							location.href = '/edit';
+						} else {
+							alert('密码错误，请重新输入');
+							location.href('/');
+						}
+					},
+					error:function(xhr,textStatus,err) {
+						alert('error:' + textStatus + "," + err);
+					}
+				});
+			});
+		})
+	</script>
+{{/section}}

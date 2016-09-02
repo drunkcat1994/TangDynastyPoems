@@ -1,0 +1,61 @@
+{{#section 'personal}}
+	<title>personal page</title>
+	<link rel="stylesheet" type="text/css" href="/css/personal.css">
+{{/section}}
+<div class="background">
+	{{> nav}}
+	<div class="main">
+		<div class="left">
+			<div class="show-board">
+				<div class="poem">
+					归山深浅去，<br>
+					须尽丘壑美。<br>
+					莫学武陵人，<br>
+					暂游桃源。
+				</div>
+			</div>
+			<div id="decro" ></div>
+			<div class="details">
+				<p>there are details</p>
+			</div>
+		</div>
+		<div class="right">
+			<div class="user-skin"> 
+				
+				<div class="user-face">
+					<img src="beyonce1.jpg">
+				</div>
+			</div>
+			
+			<hr>
+			<div class="self-intro">
+				这里是个人简介
+
+			</div>
+		</div>
+	</div>
+</div>
+{{#section 'personalJS'}}
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript">
+		$('button').click(function() {
+				var value = $(this).html();
+				switch (value) {
+					case 'login':
+						location.href = '/';
+						break;
+					case 'logout':
+						location.href = '/logout';
+						break;
+					case 'register':
+						location.href = '/register';
+						break;
+					case 'edit':
+						location.href = '/edit';
+						break
+					default:
+						location.href = '/error';
+				}
+			});
+	</script>
+{{/section}}

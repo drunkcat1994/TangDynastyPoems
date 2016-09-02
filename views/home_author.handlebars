@@ -1,0 +1,35 @@
+{{#section 'home_author'}}
+	<link rel="stylesheet" type="text/css" href="/css/home.css">
+{{/section}}
+<div class="background">
+	{{> nav}}
+
+	<div class="main">
+		<div class="subnav">
+			<ul>
+				<li><a href="/">诗选</a></li>
+				<li><a href="/home_author">诗人</a></li>
+				<li><a href="/home_poetries">诗集</a></li>
+				<li><a href="/home_announcements">公告</a></li>
+			</ul>
+		</div>		
+		<div class="show-board">
+		{{#each items}}
+			<div class="poem">
+				<div class="poem_name">
+					{{poem_name}}
+				</div>
+				<div class="poem_author">
+					{{poem_author}}
+				</div>
+				<div class="poem_content">
+					{{poem_content}}
+				</div>
+				<div class="poem_intro">
+					{{poem_intro}}
+				</div>
+			</div>
+		{{/each}}
+		</div>	
+	</div>
+</div>

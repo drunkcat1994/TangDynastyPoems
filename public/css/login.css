@@ -1,0 +1,28 @@
+@import url(nav.css);
+body {
+	margin:0;
+	padding:0;
+}
+.login-box {
+	border:1px solid black;
+	width: 30%;
+	height: 200px;
+	float: left;
+	margin-left: 30%;
+	margin-top: 10%;
+
+	text-align:center;
+	padding-top: 20px;
+	line-height: 30px;
+
+	box-shadow: 10px 10px 10px black;
+}
+.login-box button {
+	width: 50px;
+	height: 30px;
+	margin:10px;
+}
+.login-box input {
+	height: 20px;
+	margin:10px;
+}
