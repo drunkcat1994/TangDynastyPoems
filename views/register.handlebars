@@ -4,21 +4,24 @@
 {{/section}}
 {{> nav}}
 <div class="contents">
+	{{> message}}
 	<div class="register-box">
-		<label>姓名：</label>
-		<input type="text" name="username" 
-		id = "username" formmethod="post" required autofocus>
-		<br>
-		<label>密码：</label>
-		<input type="text" name="password1"
-		id="password1" formmethod="post" required autofocus>
-		<br>
-		<label>再次输入密码：</label>
-		<input type="text" name="password2"
-		id="password2" formmethod="post" required autofocus>
-		<br>
-		<button type="submit" id="register">注册</button>
-		<button type="button" id="login">登陆</button>
+		<form action="/register" method="POST">
+			<label>姓名：</label>
+			<input type="text" name="username" 
+			id = "username" formmethod="post" required autofocus>
+			<br>
+			<label>密码：</label>
+			<input type="text" name="password1"
+			id="password1" formmethod="post" required autofocus>
+			<br>
+			<label>再次输入密码：</label>
+			<input type="text" name="password2"
+			id="password2" formmethod="post" required autofocus>
+			<br>
+			<button type="submit" id="register">注册</button>
+			<button type="button" id="login">登陆</button>
+			</form>
 		</div>
 </div>
 {{#section 'registerJS'}}
@@ -45,39 +48,7 @@
 				}
 			});
 			$('#login').click(function() {
-				location.href = '/login';
-			});
-			$('#register').click(function() {
-				var username = $('#username').val();
-				var password1 = $('#password1').val();
-				var password2 = $('#password2').val();
-				if(password1 !== password2) {
-					alert('您两次输入的密码不一致，请重新输入');
-				} else {
-					var user_name = username;
-					var user_pwd = password1;
-					var searchStr = {
-						'user_name':user_name,
-						'user_pwd':user_pwd
-					};
-					$.ajax({
-						data:searchStr,
-						method:'POST',
-						dataType:'json',
-						url:'/register',
-						success:function(data) {
-							if(data) {
-								alert('注册成功');
-								location.href = '/home';
-							} else {
-								alert('用户已经存在，请重新输入');
-							}
-						},
-						error:function(xhr,textStatus,err) {
-							alert('error:' + textStatus + "," + err);
-						}
-					});
-				}
+				location.href = '/';
 			});
 		});
 	</script>

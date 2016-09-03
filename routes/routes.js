@@ -53,13 +53,22 @@ router.get('/register',function(req,res) {
 	}
 	var context = {
 		entry:entry,
-		action:action
+		action:action,
+		regSuccess: req.flash('regSuccess').toString(),
+		loginSuccess: req.flash('loginSuccess').toString(),
+		regError: req.flash('regError').toString(),
+		loginError: req.flash('loginError').toString()
 	}
 	res.render('register',context);
 });
 router.post('/register',function(req,res) {
-	var username = req.body.user_name;
-	var password = req.body.user_pwd;
+	var username = req.body.username;
+	var password1 = req.body.password1;
+	var password2 = req.body.password2;
+	if(password1 !== password2) {
+		req.flash('error','两次密码输入不相同');
+		return res.redirect('/register');
+	}
 	var searchStr = 'SELECT user_name FROM users WHERE user_name = "' +
 									username + '";';
 	connection.query(searchStr,function(err,rows,fields) {
@@ -67,28 +76,32 @@ router.post('/register',function(req,res) {
 				throw err;
 			}
 			if(rows.length === 1) {
-				res.json({success:0});		
+				req.flash('regError','用户已存在');
+				return res.redirect('/register');	
 			} else {
 				var insertStr = 'INSERT INTO users ' +
 								'VALUES ( "' + username +  
-										'","' + password + 
+										'","' + password1 + 
 										'"," " );';
 				connection.query(insertStr,function(err,rows,fields) {
 					if(err) {
-						throw err;
+						req.flash('regError',err);
+						return res.redirect('/register');
 					}
-					res.json({
-						success:1
-					});
+					req.session.username = username;
+					req.flash('regSuccess','注册成功');
+					res.redirect('/home');
 				});
 			}
 		});
 });
 //取得所有注册的用户名，遍历用户名，查询相应用户的诗歌信息，添加到模板的上下文中。
 router.get('/home',function(req,res) {
-	var session = req.session,
+	var username = req.session.username,
 		entry,action;
-	if(session && session['username']) {
+	console.log(username);
+	console.log(req.session.username.toString());//因为req.session 和cookie-parser相关
+	if(username) {
 		entry = 'logout',
 		action = 'edit'
 	} else {
@@ -104,7 +117,11 @@ router.get('/home',function(req,res) {
 			var context = {
 				entry:entry,
 				action:action,
-				items:rows
+				items:rows,
+				regSuccess:req.flash('regSuccess').toString(),
+				loginSuccess:req.flash('loginSuccess').toString(),
+				regError:req.flash('regError').toString(),
+				loginError:req.flash('loginError').toString()
 			};
 				
 			res.render('home',context);
