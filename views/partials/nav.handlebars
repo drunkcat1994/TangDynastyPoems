@@ -1,5 +1,10 @@
-<div class="nav">
-	<p><a href="/home">Tang Dynasty Poems<a></p>
-	<button id="entry" name="entry">{{entry}}</button>
-	<button id="action" name="action">{{action}}</button>
-</div>
+<ul class="nav nav-pills">
+	<li id="title" role='presentation' ><a href="/home">Tang Dynasty Poems</a></li>
+	<li id="home" role='presentation'>
+		<a href="/home">
+			<span class="glyphicon glyphicon-home" aria-hidden="true" class="active"> Home</span>
+		</a>
+	</li>
+	<li id="entry" role='presentation' name="entry"><a href="#">{{entry}}</a></li>
+	<li id="action" role='presentation' name="action"><a href="#">{{action}}</a></li>
+</ul>

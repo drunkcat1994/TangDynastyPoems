@@ -9,33 +9,23 @@ body {
 	height: auto;
 
 }
-.subnav {
-	width: 100%;
+.dropdown {
 	float: left;
-
+	margin-left: 5%;
+	width: 20%;
 }
-.subnav ul {
-	list-style: none;
-	text-align: center;
-}
-.subnav li {
-	margin-left:50px;
-	display: inline;
-	border:1px solid black;
-	padding: 10px;
-}
-.subnav a {
-	text-decoration: none;
-	color: black;
-	font-size: 25px;
+#dropdownMenu1 {
+	font-size: 18px;
 	font-weight: bold;
+	width: 150px;
+
 }
 .show-board {
 	border:1px solid black;
 	width: 50%;
 	height: auto;
 	min-height: 300px;
-	margin-left: 25%;
+	margin-left: 100px;
 	margin-top: 50px;
 	float: left;
 

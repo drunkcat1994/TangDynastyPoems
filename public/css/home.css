@@ -1,34 +1,26 @@
 @import url(nav.css);
-body {
-	padding: 0;
-	margin:0;
-}
 .main {
 	
 	min-height: 700px;
 	height: auto;
 
 }
-.subnav {
-	width: 100%;
+.dropdown {
 	float: left;
+	margin-left: 5%;
+	width: 20%;
+}
+#dropdownMenu1 {
+	font-size: 18px;
+	font-weight: bold;
+	width: 150px;
 
 }
-.subnav ul {
-	list-style: none;
-	text-align: center;
-}
-.subnav li {
-	margin-left:50px;
-	display: inline;
-	border:1px solid black;
-	padding: 10px;
-}
-.subnav a {
-	text-decoration: none;
-	color: black;
-	font-size: 25px;
-	font-weight: bold;
+.show-board {
+	border:1px solid gray;
+	width: 60%;
+	float: left;
+	margin-left: 20%;
 }
 .poem {
 	border:1px solid black;

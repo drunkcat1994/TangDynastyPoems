@@ -4,16 +4,8 @@
 {{/section}}
 <div class="background">
 	{{> nav}}
-
-	<div class="main">
-		<div class="subnav">
-			<ul>
-				<li><a href="/home">诗选</a></li>
-				<li><a href="/home_author">诗人</a></li>
-				<li><a href="/home_poetries">诗集</a></li>
-				<li><a href="/home_announcements">公告</a></li>
-			</ul>
-		</div>		
+	{{> dropdown}}
+	<div class="main">	
 		<div class="show-board">
 			<h1>公告:</h1>
 			<p>《Tang Dynasty》是一个唐诗交流网站，你可以通过一下方法获得注册资格：</p>
@@ -23,28 +15,9 @@
 	</div>
 </div>
 {{#section 'home_announceJS'}}
-	<script type="text/javascript" src='/js/jquery.js'></script>
+	<script type="text/javascript" src="/js/jquery.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$('button').click(function() {
-			var value = $(this).html();
-			switch (value) {
-				case 'login':
-					location.href = '/';
-					break;
-				case 'logout':
-					location.href = '/logout';
-					break;
-				case 'register':
-					location.href = '/register';
-					break;
-				case 'edit':
-					location.href = '/edit';
-					break
-				default:
-					location.href = '/error';
-				};
-			});
 	});
 	</script>
 {{/section}}

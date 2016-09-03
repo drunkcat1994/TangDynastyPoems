@@ -99,8 +99,8 @@ router.post('/register',function(req,res) {
 router.get('/home',function(req,res) {
 	var username = req.session.username,
 		entry,action;
-	console.log(username);
-	console.log(req.session.username.toString());//因为req.session 和cookie-parser相关
+	//console.log(username);
+	//console.log(req.session.username.toString());//因为req.session 和cookie-parser相关
 	if(username) {
 		entry = 'logout',
 		action = 'edit'
