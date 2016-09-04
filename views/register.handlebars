@@ -5,24 +5,46 @@
 {{> nav}}
 <div class="contents">
 	{{> message}}
-	<div class="register-box">
+	<div class="container">
+	<div class="col-xs-6 col-md-4 col-center-block">
+	<div class="register-box well">
 		<form action="/register" method="POST">
-			<label>姓名：</label>
-			<input type="text" name="username" 
-			id = "username" formmethod="post" required autofocus>
-			<br>
-			<label>密码：</label>
-			<input type="text" name="password1"
-			id="password1" formmethod="post" required autofocus>
-			<br>
-			<label>再次输入密码：</label>
-			<input type="text" name="password2"
-			id="password2" formmethod="post" required autofocus>
-			<br>
-			<button type="submit" id="register">注册</button>
-			<button type="button" id="login">登陆</button>
-			</form>
-		</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<label>姓名：</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" name="username" id = "username" formmethod="post" required autofocus>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<label>密码：</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" name="password1" id="password1" formmethod="post" required autofocus>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<label>再次输入密码：</label>
+				</div>
+				<div class="col-lg-8">
+					<input type="text" name="password2" id="password2" formmethod="post" required autofocus>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<button type="submit" id="register" class="btn btn-default">注册</button>
+				</div>
+				<div class="col-lg-6">
+					<button type="button" id="login" class="btn btn-default">登陆</button>
+				</div>
+			</div>		
+		</form>
+	<div>
+	</div>
+	</div>
 </div>
 {{#section 'registerJS'}}
 	<script type="text/javascript" src="/js/jquery.js"></script>
