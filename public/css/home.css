@@ -18,23 +18,18 @@
 }
 .show-board {
 	border:1px solid gray;
-	width: 60%;
 	float: left;
-	margin-left: 20%;
+	margin-left: auto;
+	margin-top: 50px;
+	min-width: 300px;
 }
 .poem {
 	border:1px solid black;
-	
-	width: 30%;
-	height: auto;
 	float: left;
-
-	margin-top: 20px;
-	margin-left: 35%;
-
+	margin: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
 	box-shadow: 5px 5px 5px gray;
-
-
 }
 .poem_name {
 	text-align:center;

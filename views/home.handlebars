@@ -6,23 +6,31 @@
 <div class="background">
 	<div class="main">
 		{{> dropdown}}
-		<div class="show-board">
-		{{#each items}}
-			<div class="poem">
-				<div class="poem_name">
-					{{poem_name}}
+		<div class="container-fluid">
+			<div class="show-board ">
+				<div class="row">
+				{{#each items}}
+				<div class="col-md-3">
+				<div class="col-sm-12">
+					<div class="poem">
+						<div class="poem_name">
+								{{poem_name}}
+						</div>
+						<div class="poem_author">
+							{{poem_author}}
+						</div>
+						<div class="poem_content">
+							{{poem_content}}
+						</div>
+						<div class="poem_intro">
+							{{poem_intro}}
+						</div>
+					</div>
 				</div>
-				<div class="poem_author">
-					{{poem_author}}
 				</div>
-				<div class="poem_content">
-					{{poem_content}}
-				</div>
-				<div class="poem_intro">
-					{{poem_intro}}
+				{{/each}}
 				</div>
 			</div>
-		{{/each}}
 		</div>	
 	</div>
 </div>

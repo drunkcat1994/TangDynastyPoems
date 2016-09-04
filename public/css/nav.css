@@ -1,3 +1,25 @@
+@media screen and (max-width: 768px){
+
+#title {
+font-size: 30px;
+font-weight: bold;
+float: left;
+}
+
+}
+@media screen and (min-width: 992px) { 
+
+.show-board {
+	width: 100%;
+	margin-top: 10px;
+}		
+#title {
+	font-size: 30px;
+	font-weight: bold;
+	float: left;
+}
+
+}
 .nav {
 	height: 50px;
 	border-bottom:1px solid #337AB7;
@@ -8,9 +30,4 @@
 	margin-top: auto;
 	margin-bottom: auto;
 }
-#title {
-	margin-left: 40%;
-	font-size: 30px;
-	font-weight: bold;
-	float: left;
-}
+
